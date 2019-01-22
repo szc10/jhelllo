@@ -1,0 +1,68 @@
+<layout data-id="context">
+    <context class="launch-context">
+        <div class="img-context">
+            <img src="img/R2D2.png" alt="">
+        </div>
+    </context>
+</layout>
+
+<style>
+    .launch-context {
+        background-color: white;
+        /* background-image: url(img/qidong.jpg); */
+        background-size: cover;
+        z-index: 99;
+        opacity: 1;
+    }
+
+    .launch-context .img-context{
+        width: 100%;
+        position: absolute;
+        bottom: 30px;
+    }
+
+    .launch-context img {
+        width: 100px;
+        margin: 0 auto;
+        display: block;
+    }
+</style>
+
+<script>
+    APP.define({
+        name: "load",
+        layout: resMap.context,
+        init: function () {
+            // 当前的load加载界面
+              this.launch();
+        },
+        // 启动函数
+        launch:function(){
+            Promise.all([this.loadApp(), this.timeDeny()]).then(() => {
+                console.log("加载完成");
+                var context = this.getContext();
+                   new Transition(context).setDuration(0.3).setOpacity(0).then(()=>{
+                       this.destroy();
+                   });
+            });
+        },
+        activite: function () {
+
+        },
+        sleep: function () {
+
+        }, // 加载主界面
+        loadApp: function () {
+            return APP.loadManifest(null, "config/m.json").then(function () {
+                APP.loadJActivity(null, 'main', 'main', null).init().activite();
+            });
+        },
+        timeDeny: function () {
+            return new Promise(function (resolve, reject) {
+                setTimeout(function () {
+                    resolve();
+                }, 2000)
+            });
+        }
+    });
+</script>
