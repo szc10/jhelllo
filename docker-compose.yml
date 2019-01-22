@@ -1,0 +1,13 @@
+version: "2"  
+services:  
+  web:  
+    image: apache_php:7.0  
+    ports:  
+      - "8080:80"  
+    volumes:  
+      - ./html:/var/www/html 
+    networks:  
+      - web-network   
+networks:  
+  web-network:  
+    driver: bridge 

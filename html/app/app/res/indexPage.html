@@ -1,0 +1,71 @@
+<style>
+    .indexpage-swiper {
+    width: 100%;
+    height: 25%;
+  }
+ .indexpage-swiper .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background-image: url(img/banner.png);
+  }
+</style>
+<layout data-id="context">
+    <context>
+        <header>
+            <span class="header-title">
+                首页
+            </span>
+        </header>
+        <div class="context-wrap">
+
+            <!-- 设置banner -->
+
+            <div class="swiper-container indexpage-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"></div>
+                        <div class="swiper-slide"></div>
+                        <div class="swiper-slide"></div>
+                    </div>
+                    <!-- Add Pagination -->
+                    <!-- <div class="swiper-pagination"></div> -->
+                </div>
+
+        </div>
+    </context>
+</layout>
+
+<script>
+    APP.define({
+        name: "indexPage",
+        layout: resMap.context,
+        init: function (data) {
+
+            setTimeout(()=>{
+                var swiper = new Swiper('.swiper-container');
+            },500);
+
+        },
+        activite: function () {
+            
+          
+        },
+        sleep: function () {
+
+
+        }
+    });
+
+</script>

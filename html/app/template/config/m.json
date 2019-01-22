@@ -1,0 +1,14 @@
+{
+    "name": "template",
+    "version": "0.0.1",
+    "description": "",
+    "author": "jhello",
+    "icon": {
+     "url": "img/R2D2.png"
+    },
+    "asyncTask": [
+       
+        "../../PWAUI/index.js"
+    ],
+    "res":[ "activity/main.html"]
+}

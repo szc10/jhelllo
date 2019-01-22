@@ -1,0 +1,78 @@
+<app id="pwaam">
+    <!-- <style type="text/css">
+        .slideout {
+            -webkit-animation-duration: .2s;
+            -webkit-animation-fill-mode: forwards;
+        }
+
+        .slidein {
+            -webkit-animation-duration: .2s;
+            -webkit-animation-fill-mode: forwards;
+        }
+
+        @-webkit-keyframes slidein {
+            from {
+                -webkit-transform: translate3d(0, 30px, 0);
+                opacity: 0;
+            }
+            to {
+                -webkit-transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes slideout {
+            from {
+                -webkit-transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+            to {
+                -webkit-transform: translate3d(0, 20px, 0);
+                opacity: 0;
+            }
+        }
+    </style> -->
+    <script type="text/javascript">
+        app.model({
+            name: "pwaam",
+            fnArr: null,
+            init: function () {
+                if (!this.fnArr) {
+                    this.fnArr = {};
+                    document.addEventListener("animationend", function (ev) {
+                        ev.target.style["-webkit-animation-name"] = null;
+                        J(ev.target).removeClass(ev.target.dataset.amfn);
+                        if (this.fnArr[ev.target.dataset.amfn]) {
+                            this.fnArr[ev.target.dataset.amfn].call(ev.target);
+                            delete this.fnArr[ev.target.dataset.amfn];
+                        }
+                    }.bind(this));
+                }
+            },
+            ctr: function (dom, con, fn) {
+                this.init();
+                J(dom).addClass(con);
+                dom.dataset.amfn = con;
+                dom.style["-webkit-animation-name"] = con;
+                this.fnArr[con] = fn;
+            },
+            slidein: function (pactivity, oactivity) {
+                oactivity.activite();
+                oactivity.parent = pactivity;
+                app.pwaam.ctr(oactivity.getContext(), "slidein", function () {
+                    pactivity.sleep();
+                    // 如果动画完成调用,动画完成时候的函数
+                    if(oactivity.amFinished){
+                       oactivity.amFinished();
+                    }
+                });
+            },
+            slideout: function (activity) {
+                activity.parent.activite();
+                app.pwaam.ctr(activity.getContext(), "slideout", function () {
+                    activity.destroy();
+                });
+            }
+        });
+    </script>
+</app>

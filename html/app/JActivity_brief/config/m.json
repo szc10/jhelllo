@@ -1,0 +1,35 @@
+{
+    "name": "JActivity_brief",
+    "version": "0.0.1",
+    "description": "",
+    "author": "jhello",
+    "script": [
+        "js/class.js"
+    ],
+    "icon": {
+     "url": "img/R2D2.png"
+    },
+    "activity": [
+        {
+            "name": "main",
+            "layout": "activity/main.html",
+            "script": "activity/main.js",
+            "css": "activity/main.css"
+        },
+        {
+            "name": "child",
+            "layout": "activity/child.html",
+            "script": "activity/child.js"
+        }
+    ],
+    "asyncTask": [
+        "../../PWAUI/index.js"
+    ],
+    "res": [
+        "res/goodAll.html",
+        "res/indexPage.html",
+        "res/notice.html",
+        "res/my.html"
+
+    ]
+}

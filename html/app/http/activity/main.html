@@ -1,0 +1,47 @@
+<context>
+
+    <header>
+
+        <span class="header-title">http请求</span>
+    </header>
+
+    <div class="context-wrap main-wrap" name="context">
+
+        <ul class="ul-pwa-line">
+            <li>
+                <h3>get请求方式:</h3>
+                <div>
+                    <h4>代码</h4>
+
+                    {{=this.formatjs(` Http.get({ root: "server/", path: "get.php", data: { test: 123 }, sucFn: function(data) { // 获取正确数据 console.log(data);
+                    }, errFn: function(data) { // 获取错误数据 console.log(data); } }); `)}}
+
+                </div>
+            </li>
+
+
+            <li>
+                <h3>post请求方式:</h3>
+                <div>
+                    <h4>代码</h4>
+
+                    {{=this.formatjs(` Http.post({ root: "server/", path: "post.php", data: { test: 123 }, sucFn: function(data) { // 获取正确数据
+                    console.log(data); }, errFn: function(data) { // 获取错误数据 console.log(data); } }); `)}}
+                </div>
+            </li>
+
+            <li>
+                <h3>form请求方式:</h3>
+                <div>
+                    <h4>代码</h4>
+
+                    {{=this.formatjs(` Http.form({ root: "server/", path: "form.php", data: { test: "form" }, sucFn: function(data) { // 获取正确数据
+                    console.log(data); }, errFn: function(data) { // 获取错误数据 console.log(data); } }); `)}}
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+
+</context>

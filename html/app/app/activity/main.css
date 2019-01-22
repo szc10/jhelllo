@@ -1,0 +1,48 @@
+.main-context {
+    height: calc(100% - 50px);
+    width: 100%;
+    background-color: #ffffff;
+    overflow-y: scroll;
+}
+
+.main-button {
+    background-color: #FAFAFA;
+    height: 50px;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+    border-top: 1px #ddd solid;
+    color: #b5b5b5;
+}
+
+.main-button ul {
+    display: flex;
+    height: 100%;
+}
+
+.main-button li {
+    display: block;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    transition: color 0.1s;
+    -moz-transition: color 0.1s;
+    -webkit-transition: color 0.1s;
+    -o-transition: color 0.1s;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position-x: 50%;
+    background-position-y: 5px;
+    font-size: 12px;
+    padding-top: 6px;
+}
+
+.main-button li icon{
+    font-size: 1.5rem;
+}
+
+
+.main-button li.active {
+    color: #f89732;
+}
+

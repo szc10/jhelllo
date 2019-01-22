@@ -1,0 +1,54 @@
+.cal-wrapper {
+    background: #eeeeee;
+}
+
+.btn-panel {
+    background: #ffffff;
+    height: 70%;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.btn-panel ul {
+    display: flex;
+    height: 20%;
+}
+
+.btn-panel ul li {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: 0.1s;
+    font-size: 1.5rem;
+    align-items: center;
+    font-weight: lighter;
+    background: #3c4043;
+    color: #ffffff
+}
+
+.btn-panel ul li:active {
+    opacity: 0.8;
+}
+
+.show-panel {
+    position: absolute;
+    bottom: 75%;
+    width: 100%;
+}
+
+.show-panel label {
+    display: block;
+    float: right;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 3rem;
+
+}
+
+.show-panel label span {
+    float: right;
+    right: 10px;
+    position: relative;
+}

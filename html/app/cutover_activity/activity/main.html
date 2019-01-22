@@ -1,0 +1,56 @@
+<layout data-id="context">
+    <context>
+        <!-- 通过模板来加载模块 -->
+        {{=app.mountView("header_subpage","切换页面")}}
+
+        <div class="context-wrap" name="context">
+
+            <div name="list">
+
+            </div>
+
+        </div>
+    </context>
+</layout>
+<!-- 设置一个模板的类型 -->
+<layout data-id="list">
+    <ul class="ul-pwa-line">
+        {{ for(var k in data) { }}
+        <li data-action="switch">{{=data[k].id}}</li>
+        {{ } }}
+    </ul>
+</layout>
+
+<script>
+    APP.define({
+        name: "main",
+        layout: resMap.context,
+        init: function (data) {
+
+            this.addEvent("click","switch",function(){
+                SubActivity.slidein(this,this.loadActivity("child","child").init());
+            });
+
+            //创建一个模板指针
+            this.list = new templateDom(this.findDom("list"), resMap.list.text);
+
+            // 设置模板数据
+            var temp_data = {};
+            for (var i = 0; i < 10; i++) {
+                temp_data[i] = {
+                    id: i
+                }
+            }
+            //应用模板数据
+            this.list.set(temp_data);
+
+        },
+        activite: function () {
+
+
+        },
+        sleep: function () {
+
+        }
+    });
+</script>

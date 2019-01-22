@@ -1,0 +1,21 @@
+{
+    "name": "components",
+    "version": "0.0.1",
+    "description": "",
+    "author": "jhello",
+    "icon": {
+     "url": "img/R2D2.png"
+    },
+    "script":["js/beautify-html.js"],
+    "activity": [
+        {
+            "name": "main",
+            "layout": "activity/main.html",
+            "script": "activity/main.js",
+            "css": "activity/main.css"
+        }
+    ],
+    "asyncTask": [
+        "../../PWAUI/index.js"
+    ]
+}

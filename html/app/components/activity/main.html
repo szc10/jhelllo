@@ -1,0 +1,240 @@
+<context>
+
+    <header>
+
+        <span class="header-title">组件展示</span>
+    </header>
+
+    <div class="context-wrap main-wrap" name="context">
+
+        <ul class="ul-pwa-line">
+            <li>
+                <h3>输入框:</h3>
+                <div>
+                    <h4>样式</h4>
+                    <input type="text" placeholder="请输入" class="input-pwa-base" />
+                    <br>
+                    <h4>代码</h4>
+                    <div>
+                        {{=this.escapeHtml('
+                        <input type="text" placeholder="请输入" class="input-pwa-base" />')}}
+                    </div>
+                </div>
+            </li>
+
+            <li>
+
+                <h3>提示输入框:</h3>
+                <h4>样式</h4>
+                <div class="label-input">
+                    <label>密码</label>
+                    <input type="text" placeholder="请输入密码">
+                </div>
+
+                <br>
+                <h4>代码</h4>
+                <div>
+                    {{=this.escapeHtml('
+                    <div class="label-input">
+                        <label>密码</label>
+                        <input type="text" placeholder="请输入密码">
+                    </div>')}}
+                </div>
+
+            </li>
+
+            <li>
+                <h3>按钮:</h3>
+                <div>
+                    <h4>样式</h4>
+                    <button class="btn-pwa-base">按钮</button>
+                    <br>
+                    <h4>代码</h4>
+
+                    <div>
+                        {{=this.escapeHtml('
+                        <button class="btn-pwa-base">按钮</button>')}}
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <h3>文本输入框:</h3>
+                <div>
+                    <h4>样式</h4>
+                    <textarea class="text-pwa-base" placeholder="请输入" cols="30" rows="10"></textarea>
+                    <br>
+                    <h4>代码</h4>
+                    <div>
+                        {{=this.escapeHtml('
+                        <textarea class="text-pwa-base" placeholder="请输入" cols="30" rows="10"></textarea>')}}
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <h3>下划线的List:</h3>
+                <div>
+                    <h4>样式</h4>
+                    <ul class="ul-pwa-line">
+                        <li>1</li>
+                        <li>2</li>
+                    </ul>
+                    <br>
+                    <h4>代码</h4>
+                    <div>
+                        {{=this.escapeHtml(`
+                        <ul class="ul-pwa-line">
+                            <li>1</li>
+                            <li>2</li>
+                        </ul>`)}}
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <h3>下划线的List(带有交互效果的):</h3>
+                <div>
+                    <h4>样式</h4>
+                    <ul class="ul-pwa-line ul-pwa-line-active">
+                        <li>1</li>
+                        <li>2</li>
+                    </ul>
+                    <br>
+                    <h4>代码</h4>
+                    <div>
+                        {{=this.escapeHtml('
+                        <ul class="ul-pwa-line 
+                                ul-pwa-line-active">
+                            <li>1</li>
+                            <li>2</li>
+                        </ul>')}}
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <h3>checkbox:</h3>
+                <div>
+                    <h4>样式</h4>
+
+                    <label class="pwa-checkbox-wrapper">
+                        <span class="pwa-checkbox pwa-checkbox-checked">
+                            <input type="checkbox" class="pwa-checkbox-input" checked></input>
+                            <span class="pwa-checkbox-inner"></span>
+                        </span>
+                        <span>已选中</span>
+                    </label>
+
+                    <br>
+
+                    <label class="pwa-checkbox-wrapper">
+                        <span class="pwa-checkbox pwa-checkbox-checked">
+                            <input type="checkbox" class="pwa-checkbox-input"></input>
+                            <span class="pwa-checkbox-inner"></span>
+                        </span>
+                        <span>未选中</span>
+                    </label>
+
+                    <br>
+
+                    <label class="pwa-checkbox-wrapper">
+                        <span class="pwa-checkbox pwa-checkbox-disabled">
+                            <input type="checkbox" class="pwa-checkbox-input"></input>
+                            <span class="pwa-checkbox-inner"></span>
+                        </span>
+                        <span>不可用</span>
+                    </label>
+
+                    <br>
+                    <h4>代码</h4>
+                    <div>
+                        {{=this.escapeHtml('
+
+                        <label class="pwa-checkbox-wrapper">
+                            <span class="pwa-checkbox pwa-checkbox-checked">
+                                <input type="checkbox" class="pwa-checkbox-input" checked></input>
+                                <span class="pwa-checkbox-inner"></span>
+                            </span>
+                            <span>已选中</span>
+                        </label>
+
+                        <br>
+
+                        <label class="pwa-checkbox-wrapper">
+                            <span class="pwa-checkbox pwa-checkbox-checked">
+                                <input type="checkbox" class="pwa-checkbox-input"></input>
+                                <span class="pwa-checkbox-inner"></span>
+                            </span>
+                            <span>未选中</span>
+                        </label>
+
+                        <br>
+
+                        <label class="pwa-checkbox-wrapper">
+                            <span class="pwa-checkbox pwa-checkbox-disabled">
+                                <input type="checkbox" class="pwa-checkbox-input"></input>
+                                <span class="pwa-checkbox-inner"></span>
+                            </span>
+                            <span>不可用</span>
+                        </label>
+
+                        ')}}
+                    </div>
+                </div>
+            </li>
+
+            <li>
+                <h3>toggle:</h3>
+                <div>
+                    <h4>样式</h4>
+
+
+                    <div class="toggle">
+                        <input type="checkbox" checked>
+                        <label>
+                            <i></i>
+                        </label>
+                    </div>
+                
+
+                    <br>
+
+                    <div class="toggle">
+                        <input type="checkbox">
+                        <label>
+                            <i></i>
+                        </label>
+                    </div>
+                    <br>
+                    <h4>代码</h4>
+                    <div>
+                        {{=this.escapeHtml('
+
+                        <div class="toggle">
+                            <input type="checkbox" checked>
+                            <label>
+                                <i></i>
+                            </label>
+                        </div>
+                    
+    
+                        <br>
+    
+                        <div class="toggle">
+                            <input type="checkbox">
+                            <label>
+                                <i></i>
+                            </label>
+                        </div>
+
+                        ')}}
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+    </div>
+
+</context>

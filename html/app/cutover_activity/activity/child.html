@@ -1,0 +1,37 @@
+<layout data-id="context">
+        <context>
+            <!-- 通过模板来加载模块 -->
+            {{=app.mountView("header_subpage","子页面")}}
+    
+            <div class="context-wrap" name="context">
+    
+                <div name="list">
+    
+                </div>
+    
+            </div>
+        </context>
+    </layout>
+ 
+    
+    <script>
+        APP.define({
+            name: "child",
+            type:"SubActivity",
+            layout: resMap.context,
+            init: function (data) {
+    
+
+            },
+            amFinished:function(){
+                this.findDom("list").innerHTML="完成动画";
+            },
+            activite: function () {
+    
+    
+            },
+            sleep: function () {
+    
+            }
+        });
+    </script>
