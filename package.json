@@ -1,0 +1,23 @@
+{
+  "name": "jhelllo",
+  "version": "1.0.0",
+  "description": "https://github.com/szc10/jhelllo",
+  "main": "test.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/szc10/jhelllo.git"
+  },
+  "author": "szc10",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/szc10/jhelllo/issues"
+  },
+  "homepage": "https://github.com/szc10/jhelllo#readme",
+  "dependencies": {}
+}
