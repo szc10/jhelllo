@@ -69,12 +69,6 @@
 
         }
     }
-
-    // Object.__proto__.listen = function (fun) {
-    //     new ObserveOb(this, fun);
-    // }
-
-
     /**
      * [ActionSlots 对事物建立一个新的监听槽,可重复对象]
      * @param {[type]} dom        [description]
@@ -194,7 +188,11 @@
             this.templateFn = templateFn;
             this.actionArr = [];
             this.components = {};
-            this.data = data;
+            if(data){
+                this.data = data;
+            } else{            
+               !(typeof this.__proto__.constructor.data =="function")  || (this.data = this.__proto__.constructor.data());
+            }
         }
       
         findDom(name) {
@@ -239,6 +237,9 @@
         set(data) {
             this.data = data;
             this.getContext().innerHTML = this.templateFn.call(this,data);
+        }
+        initView(){
+            return this.templateFn.call(this,this.data);
         }
         mountView(config) 
         {

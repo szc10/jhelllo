@@ -1,0 +1,18 @@
+<script>
+
+ window.TestJview = class extends JView {
+    static layout() {
+      return resMap["con"].text
+    }
+    static data(){
+        return {
+            context:"从默认参数中将其定义"
+        }
+    }
+  }
+
+</script>
+
+<layout data-id="con">
+    <p> {{=data.context}} </p>
+</layout>

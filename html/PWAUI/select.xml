@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+app.res(`
+
 <app id="select">
     <style type="text/css">
         ._no_display {
@@ -38,3 +39,5 @@
     </style>
 
 </app>
+
+`);

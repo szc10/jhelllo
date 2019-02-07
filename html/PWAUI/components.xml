@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+app.res(`
 <app id="component">
     <layout id="header_subpage">
 
@@ -21,3 +21,4 @@
         </header>
     </layout>
 </app>
+`);

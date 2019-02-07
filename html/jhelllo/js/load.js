@@ -77,9 +77,10 @@ class ResMgr {
                 (function(resMap){
                     ${text}
                 }(app.temp[${key}]));`;
-                    var blob = new Blob([text], {});
-                    var blobUrl = window.URL.createObjectURL(blob);
-                    pArr.push(loadScript(blobUrl,res.attributes));
+                    // var blob = new Blob([text], {});
+                    // var blobUrl = window.URL.createObjectURL(blob);
+                    // pArr.push(loadScript(blobUrl,res.attributes));
+                    pArr.push(loadJsCode(text));
                     break;
                 default:
                     break;
@@ -125,7 +126,7 @@ function loadText(url) {
                 // console.log(data);
             },
             error: function () {
-                console.log(url + " is not exist");
+                console.error(url + " is not exist");
                 reject(url + " is not exist");
             }
         });
@@ -148,11 +149,7 @@ function loadXml(text) {
 function loadLayout(url) {
     // 当前的测试用例
     return loadText(url).then(function (data) {
-
-
-        var arr = app.resMgr.loadResForText(data);
-        return app.resMgr.dealResArrForNodename(arr);
-
+        return app.res(data);
         // return Promise.resolve();
     });
 }
@@ -213,6 +210,18 @@ function loadScript(url,attributes) {
             resolve();
         }
         head.appendChild(script);
+    });
+}
+
+function loadJsCode(text){
+    return new Promise(function(resolve, reject){
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.text = text;
+        script.onload = function () {
+        }
+        document.body.appendChild(script);
+        resolve();
     });
 }
 
@@ -600,13 +609,14 @@ var objectManager = APP = app = ((function () {
         getAppLayout: function () {
             return appInf.layout;
         },
+        res:function(text){
+            var arr = app.resMgr.loadResForText(text);
+            return app.resMgr.dealResArrForNodename(arr);
+        },
         getRes: function (res) {
-
-
             if (ResMgr.res[res]) {
                 return ResMgr.res[res];
             }
-
             var pathArr = res.split("/");
             try {
                 var point = appInf.Res;
@@ -656,7 +666,7 @@ var objectManager = APP = app = ((function () {
             var a ;
             if(arguments.length==4) {
                 _this[key] = new ViewClass(viewid,template,data);
-                a = template.call(_this[key],data);
+                a = _this[key].initView();
             } else{
                 a = template(data);
             }

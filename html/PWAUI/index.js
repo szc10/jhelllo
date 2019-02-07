@@ -6,7 +6,7 @@ app.async = function(){
         css: [__dir__+"/icon/style.css",
               __dir__+"/base.css",
               __dir__+"/color.css"],
-        res: [
+        script: [
             __dir__+"/base.xml",
             __dir__+"/components.xml",
             __dir__+"/select.xml",

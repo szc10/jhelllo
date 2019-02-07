@@ -1,0 +1,15 @@
+{
+    "name": "事件响应",
+    "version": "0.0.1",
+    "description": "",
+    "author": "jhello",
+    "icon": {
+     "url": "img/R2D2.png"
+    },
+    "script":["js/class.js"],
+    "asyncTask": [
+
+        "../../PWAUI/index.js"
+    ],
+    "res":[ "activity/main.html"]
+}
