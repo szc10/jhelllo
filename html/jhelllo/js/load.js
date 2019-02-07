@@ -147,6 +147,10 @@ function loadXml(text) {
  * @param {*} url 
  */
 function loadLayout(url) {
+
+    if(/\.js$/){
+        return loadScript(url);
+    }
     // 当前的测试用例
     return loadText(url).then(function (data) {
         return app.res(data);
