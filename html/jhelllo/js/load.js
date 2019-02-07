@@ -148,7 +148,7 @@ function loadXml(text) {
  */
 function loadLayout(url) {
 
-    if(/\.js$/){
+    if(/\.js$/.test(url)){
         return loadScript(url);
     }
     // 当前的测试用例
