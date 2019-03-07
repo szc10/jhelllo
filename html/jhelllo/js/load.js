@@ -535,9 +535,10 @@ var objectManager = APP = app = ((function () {
                     appInf.activity[activityArray[k].name] = temp;
                     appInf[loadName][activityArray[k].name] = temp;
                 }
-                pArr.push(APP.loadLayoutArr(layout));
+            
                 if (scriptArr) {
                     return loadScriptArr(scriptArr).then(function () {
+                        pArr.push(APP.loadLayoutArr(layout));
                         pArr.push(preImgCacheArr(data.preImage));
                         pArr.push(APP.loadActivityArray(loadName));
                         !cssArr || pArr.push(loadCSSArr(cssArr));
@@ -545,14 +546,13 @@ var objectManager = APP = app = ((function () {
                         return Promise.all(pArr);
                     });
                 } else {
+                    pArr.push(APP.loadLayoutArr(layout));
                     pArr.push(preImgCacheArr(data.preImage));
                     pArr.push(APP.loadActivityArray(loadName));
                     !cssArr || pArr.push(loadCSSArr(cssArr));
                     pArr.push(loadAsyncArr(data.asyncTask));
                     return Promise.all(pArr);
                 }
-
-
                 function loadAsyncArr(asyncTask) {
 
                     if (!asyncTask || asyncTask.length < 1) return Promise.resolve();
