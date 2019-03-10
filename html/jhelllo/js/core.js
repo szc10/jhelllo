@@ -188,11 +188,13 @@
             this.templateFn = templateFn;
             this.actionArr = [];
             this.components = {};
+            // 判断当前的数据类型
             if(data){
                 this.data = data;
             } else{            
                !(typeof this.__proto__.constructor.data =="function")  || (this.data = this.__proto__.constructor.data());
             }
+            return this;
         }
       
         findDom(name) {
@@ -241,6 +243,31 @@
         initView(){
             return this.templateFn.call(this,this.data);
         }
+        // 初始化挂载函数
+        mountInit(){
+            // 执行元素挂载时候的回调
+           this.onMounted();
+        }
+        // 卸载
+        unmount(){
+           this.getContext().parentNode.removeChild(this.getContext());
+        }
+        /**
+         * 挂载到某个dom对象中
+         * @param dom
+         * @param data 传入的参数
+         * @props 挂载后的外部指针
+         */
+        mountAt(dom,data,props){
+            this.props = props || {}; // 是否挂载一个外部道具
+            this.data = data;
+            this.context = document.createElement("jview");
+            this.templateFn = templateFn(this.layout() || "");
+            this.context.innerHTML =this.initView();
+            dom.append(this.context);
+            this.mountInit(); // 执行挂载操作
+
+        }
         mountView(config) 
         {
             var onn = {};
@@ -250,6 +277,9 @@
             var res = app.mountView(el, data ,onn,"point");
             this.components[id] = onn.point;
             return res;
+        }
+        onMounted(){
+              // 需要具体实现相应的方法
         }
     }
 
@@ -358,6 +388,7 @@
             var state = "paused";
             this._updateState(state);
             this._init.apply(this, arguments);
+            this.initComponents();
             return this;
         }
         activite() {
@@ -381,7 +412,7 @@
                 if (!this.config.layout.point.querySelector('script[data-name="' + name + '"]')) throw "act-name:" + name + " is not find";
                 _ob.html = this.config.layout.point.querySelector('script[data-name="' + name + '"]').innerHTML;
             } catch (err) {
-                console.log(err);
+                console.error(err);
             }
 
             return new JTemplate(_ob);
@@ -479,5 +510,12 @@
             var res = app.mountView(el, data ,onn,"point");
             this.components[id] = onn.point;
             return res;
+        }
+        initComponents(){
+           for(let id in this.components){
+               let component = this.components[id];
+               if(typeof component.onMounted === "function" )
+               component.onMounted();
+           }
         }
     }

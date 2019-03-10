@@ -7,6 +7,7 @@
             <TestJview id="newid" data="">  </TestJview>
             {{=this.mountView({id:"testJview",tag:TestJview}) }}
             <button data-action="update" class="btn-pwa-base">update</button>
+            <button data-action="open" class="btn-pwa-base">open</button>
         </div>
         
     </context>
@@ -21,6 +22,10 @@
 
             this.addEvent("click","update",()=>{
                 this.findDomById("testJview").set({context:"我的值由于click操作而修改了"});
+            });
+
+            this.addEvent("click","open",()=>{
+                new BgPageView().mountAt(this.getContext(),"BgPageView",this);
             });
 
         },

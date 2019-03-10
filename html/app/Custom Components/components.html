@@ -9,10 +9,43 @@
             context:"从默认参数中将其定义"
         }
     }
+     onMounted(){
+        console.log("组件被顺利挂载了");
+     }
   }
+
+ window.BgPageView = class extends JView {
+     layout() {
+         return resMap["ok"].text
+     }
+     onMounted(){
+         this.addEvent("click","click-action",this.clickFn);
+     }
+     clickFn(){
+        alert("触发点击事件,关闭当前界面");
+         this.unmount();
+     }
+ }
 
 </script>
 
 <layout data-id="con">
     <p> {{=data.context}} </p>
+</layout>
+
+<layout data-id="ok">
+    <div class="ok-wrapper">
+        <h2>{{=data}}</h2>
+        <button data-action="click-action" class="btn-pwa-base">close action</button>
+    </div>
+    <style>
+         .ok-wrapper{
+             position: absolute;
+             top: 0px;
+             width: 100%;
+             height: 100%;
+             background: #c5c2d491;
+         }
+    </style>
+
 </layout>
