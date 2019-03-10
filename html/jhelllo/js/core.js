@@ -245,6 +245,7 @@
         }
         // 初始化挂载函数
         mountInit(){
+            this.initComponents();
             // 执行元素挂载时候的回调
            this.onMounted();
         }
@@ -280,6 +281,13 @@
         }
         onMounted(){
               // 需要具体实现相应的方法
+        }
+        initComponents(){
+            for(let id in this.components){
+                let component = this.components[id];
+                if(typeof component.onMounted === "function" )
+                    component.mountInit();
+            }
         }
     }
 
@@ -515,7 +523,7 @@
            for(let id in this.components){
                let component = this.components[id];
                if(typeof component.onMounted === "function" )
-               component.onMounted();
+               component.mountInit();
            }
         }
     }

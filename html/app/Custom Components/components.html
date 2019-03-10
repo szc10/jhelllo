@@ -36,6 +36,7 @@
 <layout data-id="ok">
     <div class="ok-wrapper">
         <h2>{{=data}}</h2>
+        {{=this.mountView({id:"testJview",tag:TestJview}) }}
         <button data-action="click-action" class="btn-pwa-base">close action</button>
     </div>
     <style>
