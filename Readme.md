@@ -7,4 +7,4 @@ https://github.com/szc10/jhelllo
 
 npm install uglify-es -g
 
-uglifyjs jsBox.js core.js load.js -o jhelllo.min.js
+uglifyjs jsBox.js core.js load.js cssBox.js lib/http.js -o jhelllo.min.js 
