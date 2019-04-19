@@ -11,7 +11,7 @@ function templateFn(html) {
     try {
         var fn = new Function('data', dealHtml);
     } catch (e) {
-        console.log(e);
+        console.error(e);
     }
     return fn
 }
